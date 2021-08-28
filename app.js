@@ -8,14 +8,18 @@ const output = document.querySelector("#output-container");
 
 
 function checkLuckyHandler() {
-    if (dateOfBirth.value&&luckyNumber.value) {
+    if(luckyNumber.value.length===0){
+        output.innerText= "please enter both values";
+    }
+    else if(luckyNumber.value<=0) {
+        output.innerText= "Please enter a positive integer value in lucky number";
+    }
+    else if (dateOfBirth.value&&luckyNumber.value) {
         var dob = dateOfBirth.value;
         var sum = sumTheDob(dob);
         calculateLucky(sum, luckyNumber.value);
     }
-    else {
-        output.innerText= "please enter both values"
-    }
+    
 }
 
 function sumTheDob(dob) {
